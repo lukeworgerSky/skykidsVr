@@ -37,16 +37,35 @@ public class DynamicallyAddPanel : MonoBehaviour {
 
 		gridSize = panelToSpawn.GetComponent<RectTransform> ().sizeDelta.x + 25;
 
+		int cols = Mathf.FloorToInt(width / gridSize);
+		Debug.Log (cols);
+
+		int rows = Mathf.CeilToInt((float)dataList.Count / (float)cols);
+		Debug.Log (rows);
+
+		totalHeight = gridSize * rows;
+
+		Debug.Log (totalHeight);
+
+		if(totalHeight > height)
+			this.GetComponent<RectTransform> ().sizeDelta = new Vector2 (width, totalHeight);
+
+
+
 		Debug.Log ("Grid Size: " + gridSize);
 
 		pixelPadding_side = gridSize / 2;
 		pixelPadding_top = gridSize / 2;
 
-		//Debug.Log ((width /2) - pi xelPadding_side);
+		//Debug.Log ((width /2) - pixelPadding_side);
 
 		leftLimit = -1 * ((width / 2) - pixelPadding_side);
 		rightLimit = ((width / 2) - pixelPadding_side);
-		upperLimit = ((height / 2));
+		upperLimit = (totalHeight/2) + (gridSize /2);
+
+		Debug.Log("left " + leftLimit);
+		Debug.Log("right " + rightLimit);
+		Debug.Log("upper " + upperLimit);
 
 		//Debug.Log ("Upper Limit: " + upperLimit);
 
@@ -55,7 +74,10 @@ public class DynamicallyAddPanel : MonoBehaviour {
 		Vector2 prevPos = Vector2.zero;
 
 		//Total height of grid items is used to size UI panel for scrolling
-		totalHeight = gridSize;
+		//totalHeight = gridSize;
+
+
+		Debug.Log (currPos);
 
 		//loop through data list
 		for (int i = 0; i < dataList.Count; i++) {
@@ -63,22 +85,23 @@ public class DynamicallyAddPanel : MonoBehaviour {
 			//if the last UI item added was in the right most allowed grid space, reset to the line below (at the left hand size)
 			if (prevPos.x == rightLimit) {
 				currPos = new Vector2 (leftLimit, currPos.y - gridSize);
-				totalHeight += gridSize;
+				//totalHeight += gridSize;
 			}
 
 			//Instantiate gameobject at passed position. Also set this.transform (the gameobject to which this script is attached) as parent
 			GameObject g = GameObject.Instantiate (panelToSpawn, this.transform, false);
 
 			//Set position on the panel
-			g.GetComponent<RectTransform> ().anchoredPosition = currPos;
+			g.GetComponent<RectTransform> ().anchoredPosition = currPos; 
 
 			//SET UI ELEMENT VALUES FOR THE SPAWNED GAMEOBJECT
-			Button spwnBtn = g.GetComponentInChildren<Button>();
-			Text title = spwnBtn.GetComponentInChildren<Text>();
+			//Button spwnBtn = g.GetComponentInChildren<Button>();
+			//Text title = spwnBtn.GetComponentInChildren<Text>();
 
 			Image image = g.GetComponentInChildren<Image>();
 
-			title.text = dataList[i].Title;
+//			Text title = g.GetComponentInChildren<Text> ();
+//			title.text = dataList[i].Title;
 			image.sprite = dataList[i].Img;
 
 			//Debug.Log (dataList [i].Img);
@@ -95,7 +118,7 @@ public class DynamicallyAddPanel : MonoBehaviour {
 		//Debug.Log (totalHeight);
 
 		//Dynamically set panel height to allow for differing amounts of items added to panel
-		this.GetComponent<RectTransform> ().sizeDelta = new Vector2 (width, totalHeight);
+		//this.GetComponent<RectTransform> ().sizeDelta = new Vector2 (width, totalHeight);
 
 
 		
