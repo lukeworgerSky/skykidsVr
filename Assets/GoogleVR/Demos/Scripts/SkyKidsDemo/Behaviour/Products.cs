@@ -17,7 +17,7 @@ public class Products : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		productsAPi = new ProductsWebAPI ();
-
+		productPanelShowing.SetActive (false);
 		productsButton = GameObject.Find("ViewProductsButton").GetComponent<UnityEngine.UI.Button>();
 		productsButton.onClick.AddListener(generateProductsList);
 	}
@@ -33,7 +33,7 @@ public class Products : MonoBehaviour {
 
 	private void generateProductsList(){
 		productsMainPanel = GameObject.Find ("ProductsMainPanel");
-		GameObject g = GameObject.Instantiate (productPanelShowing, this.transform, false);
+		productPanelShowing.SetActive (true);
 		productsMainPanel.SetActive (false);
 	}
 	
