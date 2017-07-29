@@ -10,31 +10,23 @@ public class Products : MonoBehaviour {
 	IProductsWebAPI productsAPi;
 	List<Product> products;
 
-	public GameObject productPanelTemplate;
-	public GameObject productPanelShowing;
-	public GameObject productsMainPanel; 
+	public GameObject selectedProductPanel;
+	public GameObject mainPanel;
+	public GameObject productsGrid; 
 
 	// Use this for initialization
 	void Start () {
 		productsAPi = new ProductsWebAPI ();
-		productPanelShowing.SetActive (false);
+		selectedProductPanel.SetActive (false);
+		productsGrid.SetActive (false);
+
 		productsButton = GameObject.Find("ViewProductsButton").GetComponent<UnityEngine.UI.Button>();
 		productsButton.onClick.AddListener(generateProductsList);
 	}
-		
-	public void showProducts(){
-		//getProducts ();
-		generateProductsList ();
-	}
-
-	private void getProducts(){
-		//products = productsAPi.getProducts (); 
-	}
 
 	private void generateProductsList(){
-		productsMainPanel = GameObject.Find ("ProductsMainPanel");
-		productPanelShowing.SetActive (true);
-		productsMainPanel.SetActive (false);
+		productsGrid.SetActive (true);
+		mainPanel.SetActive (false);
 	}
 	
 	// Update is called once per frame
