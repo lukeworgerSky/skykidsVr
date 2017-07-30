@@ -554,7 +554,7 @@ GameObject:
   - component: {fileID: 131732025}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: productButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1339,7 +1339,7 @@ GameObject:
   - component: {fileID: 163315891}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: productButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1593,7 +1593,7 @@ GameObject:
   - component: {fileID: 187666836}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: productButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2660,6 +2660,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 389839559}
+  - component: {fileID: 389839560}
   m_Layer: 0
   m_Name: Products
   m_TagString: Untagged
@@ -2685,6 +2686,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &389839560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 389839558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b3fc464f7df6406393e43d676b44464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedProductPanel: {fileID: 1017895335}
 --- !u!1 &398014782
 GameObject:
   m_ObjectHideFlags: 0
@@ -2861,7 +2874,7 @@ GameObject:
   - component: {fileID: 413317213}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: productButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4640,7 +4653,7 @@ GameObject:
   - component: {fileID: 816157036}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: productButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5416,7 +5429,7 @@ GameObject:
   - component: {fileID: 866157725}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: productButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5528,12 +5541,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 830884036}
-        m_MethodName: Play
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7726,7 +7739,7 @@ GameObject:
   - component: {fileID: 1254110284}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: productButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8268,7 +8281,7 @@ GameObject:
   - component: {fileID: 1430538651}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: productButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10336,7 +10349,7 @@ GameObject:
   - component: {fileID: 1665576952}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: productButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10672,7 +10685,7 @@ GameObject:
   - component: {fileID: 1710852513}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: productButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11223,7 +11236,7 @@ GameObject:
   - component: {fileID: 1785143425}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: productButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11807,7 +11820,7 @@ GameObject:
   - component: {fileID: 1936548395}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: productButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
