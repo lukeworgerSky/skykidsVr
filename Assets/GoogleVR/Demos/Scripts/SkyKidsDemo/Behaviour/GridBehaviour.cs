@@ -42,7 +42,6 @@ public class GridBehaviour : MonoBehaviour {
 			Button gridButton = gridButtonObject.GetComponent<UnityEngine.UI.Button>();
 
 			gridButton.onClick.AddListener(delegate { setSelectedItem(parentName); });
-
 		}
 	}
 
@@ -50,6 +49,10 @@ public class GridBehaviour : MonoBehaviour {
 	public void setSelectedItem(string parentName){
 		Debug.Log ("Set selected item called!!!!!");
 		selectedProductPanel.SetActive (true);
+
+		Button btn = GameObject.Find("AddButton").GetComponent<Button>();
+		btn.onClick.AddListener(delegate { Basket.addToBasket(currentSelectedProduct.id);});
+
 		GameObject selectedName = GameObject.Find ("selectedProductText");
 		Text selectedNameText = selectedName.GetComponent<UnityEngine.UI.Text> ();
 		productData.TryGetValue (parentName, out currentSelectedProduct);
