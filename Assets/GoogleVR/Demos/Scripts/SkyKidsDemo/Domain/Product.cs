@@ -4,8 +4,8 @@ namespace AssemblyCSharp
 {
 	public class Product
 	{
-		int id { get; set; }
-		double price { get; set; }
+		public int id { get; set; }
+		public double price { get; set; }
 
 		public Product (int id, double price)
 		{

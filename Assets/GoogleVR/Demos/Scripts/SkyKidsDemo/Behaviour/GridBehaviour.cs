@@ -10,10 +10,21 @@ public class GridBehaviour : MonoBehaviour {
 	public GameObject selectedProductPanel;
 	public static Dictionary<string, Product> productData = new Dictionary<string, Product>()
 	{
-		{ "Blossom", new Product(1,2.99)},
-
-
+		{ "Blossom", new Product(1,3.00)},
+		{ "Bubbles", new Product(2,2.99)},
+		{ "Buttercup", new Product(3,5.99)},
+		{ "Buzz", new Product(4,4.99)},
+		{ "Dora", new Product(5,7.99)},
+		{ "Kion", new Product(6,2.99)},
+		{ "Olaf", new Product(7,4.99)},
+		{ "Pawpatrol", new Product(8,1.99)},
+		{ "Peppa", new Product(9,4.99)},
+		{ "Po", new Product(10,5.99)},
+		{ "Sofia", new Product(11,2.99)},
+		{ "Walle", new Product(12,5.99)}
 	};
+
+	public static Product currentSelectedProduct;
 
 	// Use this for initialization
 	void Start () {
@@ -41,7 +52,8 @@ public class GridBehaviour : MonoBehaviour {
 		selectedProductPanel.SetActive (true);
 		GameObject selectedName = GameObject.Find ("selectedProductText");
 		Text selectedNameText = selectedName.GetComponent<UnityEngine.UI.Text> ();
-		selectedNameText.text = parentName;
+		productData.TryGetValue (parentName, out currentSelectedProduct);
+		selectedNameText.text = parentName + " : Price : £" + currentSelectedProduct.price;
 	}
 	
 	// Update is called once per frame
