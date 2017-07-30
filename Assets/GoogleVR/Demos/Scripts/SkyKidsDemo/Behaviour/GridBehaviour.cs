@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using AssemblyCSharp;
 
 public class GridBehaviour : MonoBehaviour {
 
 	GameObject[] gridButtons;
 	public GameObject selectedProductPanel;
+	public static Dictionary<string, Product> productData = new Dictionary<string, Product>()
+	{
+		{ "Blossom", new Product(1,2.99)},
+
+
+	};
 
 	// Use this for initialization
 	void Start () {
@@ -14,13 +21,13 @@ public class GridBehaviour : MonoBehaviour {
 
 	void OnEnable()
 	{
-		Debug.Log ("GRID BEHAVIOUR ENABLED WAS CALLED");
+		//Debug.Log ("GRID BEHAVIOUR ENABLED WAS CALLED");
 		gridButtons = GameObject.FindGameObjectsWithTag ("productButton");
-		Debug.Log ("length from enable: " +gridButtons.Length);
+		//Debug.Log ("length from enable: " +gridButtons.Length);
 		foreach(GameObject gridButtonObject in gridButtons){
 
 			string parentName = gridButtonObject.transform.parent.name;
-			Debug.Log ("ParentName:  " + parentName);
+			//Debug.Log ("ParentName:  " + parentName);
 			Button gridButton = gridButtonObject.GetComponent<UnityEngine.UI.Button>();
 
 			gridButton.onClick.AddListener(delegate { setSelectedItem(parentName); });
