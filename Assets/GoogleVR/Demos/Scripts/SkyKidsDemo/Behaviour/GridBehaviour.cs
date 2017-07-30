@@ -10,18 +10,18 @@ public class GridBehaviour : MonoBehaviour {
 	public GameObject selectedProductPanel;
 	public static Dictionary<string, Product> productData = new Dictionary<string, Product>()
 	{
-		{ "Blossom", new Product(1,3.00)},
-		{ "Bubbles", new Product(2,2.99)},
-		{ "Buttercup", new Product(3,5.99)},
-		{ "Buzz", new Product(4,4.99)},
-		{ "Dora", new Product(5,7.99)},
-		{ "Kion", new Product(6,2.99)},
-		{ "Olaf", new Product(7,4.99)},
-		{ "Pawpatrol", new Product(8,1.99)},
-		{ "Peppa", new Product(9,4.99)},
-		{ "Po", new Product(10,5.99)},
-		{ "Sofia", new Product(11,2.99)},
-		{ "Walle", new Product(12,5.99)}
+		{ "Blossom", new Product(1,3.00, "Blossom")},
+		{ "Bubbles", new Product(2,2.99, "Bubbles")},
+		{ "Buttercup", new Product(3,5.99, "Buttercup")},
+		{ "Buzz", new Product(4,4.99, "Buzz")},
+		{ "Dora", new Product(5,7.99, "Dora")},
+		{ "Kion", new Product(6,2.99, "Kion")},
+		{ "Olaf", new Product(7,4.99, "Olaf")},
+		{ "Pawpatrol", new Product(8,1.99, "Pawpatrol")},
+		{ "Peppa", new Product(9,4.99, "Peppa")},
+		{ "Po", new Product(10,5.99, "Po")},
+		{ "Sofia", new Product(11,2.99, "Sofia")},
+		{ "Walle", new Product(12,5.99, "Walle")}
 	};
 
 	public static Product currentSelectedProduct;
