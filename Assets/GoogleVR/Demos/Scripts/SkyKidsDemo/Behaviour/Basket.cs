@@ -22,6 +22,8 @@ public class Basket : MonoBehaviour {
 		itemPrefab = GameObject.Find ("selectedProductText");
 		itemPrefab = (GameObject)Resources.Load("prefabs/basketItem", typeof(GameObject));
 		totalTextObject = GameObject.Find ("TotalValue");
+		Button clearBtn = GameObject.Find("ClearButton").GetComponent<Button>();
+		clearBtn.onClick.AddListener(resetBasket);
 	}
 
 	public static void addToBasket(int id){
@@ -33,6 +35,14 @@ public class Basket : MonoBehaviour {
 			basketValues [id] = basketValue + 1;
 			addItemToGrid (id, basketValues [id]);
 			updateView ();
+		}
+	}
+
+	private static void resetBasket(){
+		basketValues.Clear ();
+		updateView ();
+		foreach (Transform child in basketGrid.transform) {
+			GameObject.Destroy (child.gameObject);
 		}
 	}
 
