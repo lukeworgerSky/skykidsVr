@@ -54,15 +54,32 @@ public class Basket : MonoBehaviour {
 	private static void addItemToGrid(int id, int basketValue){
 		Debug.Log ("GOT TO ADDING ITEM TO GRID:   BASKETVALUE : " + basketValue);
 		Product productToAdd = GridBehaviour.productData.Values.FirstOrDefault(prod => prod.id == id);
-		GameObject newItem = Instantiate(itemPrefab) as GameObject;
-		Text[] newTextItems = newItem.GetComponents<Text> ();
-		if (newTextItems.Length > 0) {
-			newTextItems [0].text = productToAdd.name;
-			newTextItems [1].text = "" + basketValue;
-		}
+		foreach (Transform child in basketGrid.transform) {
+			if (child.name == id + "item") {
+				Transform quantity = child.transform.Find ("Quantity");
+				Text quantityText = quantity.GetComponent<Text> ();
+				quantityText.text = basketValue.ToString();
 
-		newItem.transform.SetParent(basketGrid.transform, false);
-		Debug.Log ("ITEM HOPEFULLY ADDED WITH NEW BASKET VALUE");
+				//If found to update then return out.
+				return;
+			}
+		}
+		if (basketGrid.transform.childCount < 8) {
+			GameObject newItem = Instantiate (itemPrefab) as GameObject;
+			newItem.name = id + "item";
+
+			Transform itemName = newItem.transform.Find ("ItemName");
+			Text itemNameText = itemName.GetComponent<Text> ();
+			itemNameText.text = productToAdd.name;
+
+			Transform quantity = newItem.transform.Find ("Quantity");
+			Text quantityText = quantity.GetComponent<Text> ();
+			quantityText.text = basketValue.ToString();
+
+
+			newItem.transform.SetParent (basketGrid.transform, false);
+			Debug.Log ("ITEM HOPEFULLY ADDED WITH NEW BASKET VALUE");
+		}
 	}
 
 	// Update is called once per frame
