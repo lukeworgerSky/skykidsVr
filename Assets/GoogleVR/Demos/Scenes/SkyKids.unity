@@ -8245,7 +8245,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Remove item
+  m_Text: Clear
 --- !u!222 &1160359629
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9034,7 +9034,7 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 1
-  m_CellSize: {x: 2000, y: 20}
+  m_CellSize: {x: 2000, y: 200}
   m_Spacing: {x: 0, y: 100}
   m_Constraint: 1
   m_ConstraintCount: 1
@@ -13287,7 +13287,7 @@ GameObject:
   - component: {fileID: 1958935154}
   - component: {fileID: 1958935153}
   m_Layer: 5
-  m_Name: RemoveButton
+  m_Name: ClearButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
