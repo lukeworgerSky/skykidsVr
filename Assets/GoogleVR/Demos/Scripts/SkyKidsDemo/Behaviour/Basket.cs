@@ -10,9 +10,9 @@ public class Basket : MonoBehaviour {
 	private static Dictionary<int,int> basketValues = new Dictionary<int, int>();
 	private static double total;
 	public static GameObject totalTextObject;
+	private static IBasketWebAPI basketApi;
 
 	public static GameObject selectedBasketItem;
-	private static List<GameObject> basketItemsObjects = new List<GameObject>();
 	public static GameObject basketGrid;
 	public static GameObject itemPrefab;
 
@@ -21,9 +21,13 @@ public class Basket : MonoBehaviour {
 		basketGrid = GameObject.Find ("BasketGrid");
 		itemPrefab = GameObject.Find ("selectedProductText");
 		itemPrefab = (GameObject)Resources.Load("prefabs/basketItem", typeof(GameObject));
+		basketApi = (new GameObject("SomeObjName")).AddComponent<BasketWebAPI>();
 		totalTextObject = GameObject.Find ("TotalValue");
 		Button clearBtn = GameObject.Find("ClearButton").GetComponent<Button>();
 		clearBtn.onClick.AddListener(resetBasket);
+
+		Button purchaseBtn = GameObject.Find("PurchaseButton").GetComponent<Button>();
+		purchaseBtn.onClick.AddListener(delegate{basketApi.sendOrder(basketValues);});
 	}
 
 	public static void addToBasket(int id){
