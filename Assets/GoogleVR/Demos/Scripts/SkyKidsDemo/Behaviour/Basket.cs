@@ -25,12 +25,15 @@ public class Basket : MonoBehaviour {
 	}
 
 	public static void addToBasket(int id){
-		int basketValue;
+		Debug.Log ("Called addtobasket with : " + id);
+		if (basketGrid.transform.childCount < 8) {
+			int basketValue;
 
-		basketValues.TryGetValue(id, out basketValue); 
-		basketValues[id] = basketValue + 1;
-		addItemToGrid (id, basketValues[id]);
-		updateView ();
+			basketValues.TryGetValue (id, out basketValue); 
+			basketValues [id] = basketValue + 1;
+			addItemToGrid (id, basketValues [id]);
+			updateView ();
+		}
 	}
 
 	private static void calculateTotal(){
@@ -64,7 +67,6 @@ public class Basket : MonoBehaviour {
 				return;
 			}
 		}
-		if (basketGrid.transform.childCount < 8) {
 			GameObject newItem = Instantiate (itemPrefab) as GameObject;
 			newItem.name = id + "item";
 
@@ -72,14 +74,13 @@ public class Basket : MonoBehaviour {
 			Text itemNameText = itemName.GetComponent<Text> ();
 			itemNameText.text = productToAdd.name;
 
-			Transform quantity = newItem.transform.Find ("Quantity");
-			Text quantityText = quantity.GetComponent<Text> ();
-			quantityText.text = basketValue.ToString();
+			Transform quantityName = newItem.transform.Find ("Quantity");
+			Text quantityNameText = quantityName.GetComponent<Text> ();
+			quantityNameText.text = basketValue.ToString();
 
 
 			newItem.transform.SetParent (basketGrid.transform, false);
 			Debug.Log ("ITEM HOPEFULLY ADDED WITH NEW BASKET VALUE");
-		}
 	}
 
 	// Update is called once per frame
