@@ -25,6 +25,9 @@ public class GridBehaviour : MonoBehaviour {
 	};
 
 	public static Product currentSelectedProduct;
+	public GameObject debugger; 
+	public GameObject walle;
+	public GameObject defaultModel;
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +37,7 @@ public class GridBehaviour : MonoBehaviour {
 	{
 		//Debug.Log ("GRID BEHAVIOUR ENABLED WAS CALLED");
 		gridButtons = GameObject.FindGameObjectsWithTag ("productButton");
+
 		//Debug.Log ("length from enable: " +gridButtons.Length);
 		foreach(GameObject gridButtonObject in gridButtons){
 
@@ -52,12 +56,18 @@ public class GridBehaviour : MonoBehaviour {
 		Debug.Log ("Set selected item called!!!!!");
 		selectedProductPanel.SetActive (true);
 
-
-
 		GameObject selectedName = GameObject.Find ("selectedProductText");
 		Text selectedNameText = selectedName.GetComponent<UnityEngine.UI.Text> ();
 		productData.TryGetValue (parentName, out currentSelectedProduct);
 		selectedNameText.text = parentName + " : Price : £" + currentSelectedProduct.price;
+
+		if (parentName == "Walle") {
+			walle.SetActive (true);
+			defaultModel.SetActive (false);
+		} else {
+			walle.SetActive (false);
+			defaultModel.SetActive (true);
+		}
 	}
 	
 	// Update is called once per frame
