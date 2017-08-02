@@ -23,8 +23,8 @@ namespace AssemblyCSharp
 		}
 
 		IEnumerator Upload(string formDataString){
-			List<IMultipartFormSection> formData = new List<IMultipartFormSection> ();
-			formData.Add(new MultipartFormDataSection(formDataString));
+			WWWForm formData = new WWWForm ();
+			formData.AddField("data",formDataString);
 			UnityWebRequest www = UnityWebRequest.Post ("http://192.168.43.43:3000/vr", formData);
 			yield return www.Send ();
 
