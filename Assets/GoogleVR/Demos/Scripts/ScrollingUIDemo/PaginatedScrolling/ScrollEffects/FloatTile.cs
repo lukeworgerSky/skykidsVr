@@ -30,25 +30,25 @@ public class FloatTile : BaseTile {
   private float desiredPositionZ;
   private Vector3 desiredScale = Vector3.one;
 
-  [Range(1.0f, 2.0f)]
+  //[Range(1.0f, 2.0f)]
   [Tooltip("Tile scale when the pointer over the tile.")]
-  public float hoverScale = 1.2f;
+  public float hoverScale = 0.0f;
 
-  [Range(0.01f, 0.5f)]
+  //[Range(0.01f, 0.5f)]
   [Tooltip("Tile forward distance when the pointer over the tile.")]
-  public float hoverPositionZMeters = 0.225f;
+  public float hoverPositionZMeters = 0.0f;
 
-  [Range(0.0f, 30.0f)]
+  //[Range(0.0f, 30.0f)]
   [Tooltip("Maximum tile rotation towards the camera.")]
-  public float maximumRotationDegreesCamera = 15.0f;
+  public float maximumRotationDegreesCamera = 0.0f;
 
-  [Range(0.0f, 5.0f)]
+  //[Range(0.0f, 5.0f)]
   [Tooltip("Maximum tile rotation towards the pointer.")]
-  public float maximumRotationDegreesPointer = 3.0f;
+  public float maximumRotationDegreesPointer = 0.0f;
 
-  [Range(1.0f, 10.0f)]
+  //[Range(1.0f, 10.0f)]
   [Tooltip("Speed used for lerping the rotation/scale/position of the tile.")]
-  public float interpolationSpeed = 8.0f;
+  public float interpolationSpeed = 0.0f;
 
   public override void Reset() {
     base.Reset();
